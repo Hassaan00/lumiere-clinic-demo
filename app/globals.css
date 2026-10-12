@@ -1,0 +1,8 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+html { scroll-behavior: smooth; }
+body { background: #FBF6EC; color: #2A2418; }
+.btn-gold { @apply inline-block rounded-full bg-gold px-7 py-3 font-medium text-white shadow-lg shadow-gold/30 transition hover:bg-gold-dark; }
+.btn-outline { @apply inline-block rounded-full border border-gold px-7 py-3 font-medium text-gold-dark transition hover:bg-gold hover:text-white; }
+.section-title { @apply font-serif text-3xl md:text-4xl text-ink; }
+.eyebrow { @apply text-xs uppercase tracking-[0.3em] text-gold; }
+.input { @apply w-full rounded-lg border border-gold/30 bg-white px-4 py-3 outline-none focus:border-gold; }
