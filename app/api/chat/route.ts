@@ -36,5 +36,5 @@ export async function POST(req: Request) {
       if (r.ok) { const d = await r.json(); const reply = d.choices?.[0]?.message?.content; if (reply) return NextResponse.json({ reply, source: "groq" }); }
     } catch (e) { diag += " err"; }
   }
-  return NextResponse.json({ reply: fallback(last), source: "rules", diag });
+  return NextResponse.json({ reply: fallback(last), source: "rules" });
 }
