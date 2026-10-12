@@ -1,8 +1,8 @@
 export const CLINIC = {
   name: "Lumière Aesthetic Clinic",
   address: "Villa 12, Al Wasl Road, Jumeirah 1, Dubai, UAE",
-  phone: "+971 50 000 0000",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "971500000000",
+  phone: "+92 332 2309346",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "923322309346",
   hours: { en: "Sat–Thu 10:00–21:00, Fri 14:00–21:00", ar: "السبت–الخميس 10:00–21:00، الجمعة 14:00–21:00" },
 };
 export const SERVICES = [
