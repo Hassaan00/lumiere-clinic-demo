@@ -24,15 +24,17 @@ export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
   const messages: Msg[] = Array.isArray(body.messages) ? body.messages.slice(-10) : [];
   const last = messages[messages.length - 1]?.content || "";
-  const key = process.env.GROQ_API_KEY;
+  const key = process.env.GROQ_API_KEY?.trim();
+  let diag = key ? "key:" + key.length : "nokey";
   if (key) {
     try {
       const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
         body: JSON.stringify({ model: "openai/gpt-oss-20b", temperature: 0.4, max_tokens: 800, messages: [{ role: "system", content: SYSTEM }, ...messages] }),
       });
+      diag += " status:" + r.status;
       if (r.ok) { const d = await r.json(); const reply = d.choices?.[0]?.message?.content; if (reply) return NextResponse.json({ reply, source: "groq" }); }
-    } catch {}
+    } catch (e) { diag += " err"; }
   }
-  return NextResponse.json({ reply: fallback(last), source: "rules" });
+  return NextResponse.json({ reply: fallback(last), source: "rules", diag });
 }
