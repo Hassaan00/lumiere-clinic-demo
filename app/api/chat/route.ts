@@ -29,7 +29,7 @@ export async function POST(req: Request) {
     try {
       const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
         method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-        body: JSON.stringify({ model: "llama-3.1-8b-instant", temperature: 0.4, max_tokens: 300, messages: [{ role: "system", content: SYSTEM }, ...messages] }),
+        body: JSON.stringify({ model: "openai/gpt-oss-20b", temperature: 0.4, max_tokens: 800, messages: [{ role: "system", content: SYSTEM }, ...messages] }),
       });
       if (r.ok) { const d = await r.json(); const reply = d.choices?.[0]?.message?.content; if (reply) return NextResponse.json({ reply, source: "groq" }); }
     } catch {}

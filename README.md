@@ -7,7 +7,7 @@ A premium sales demo for Gulf clinics and salons: Next.js 14 (App Router) + Type
 - Services with AED prices, doctors, gradient gallery, reviews, location and hours, footer
 - English / Arabic toggle with full RTL
 - Booking form → `POST /api/book` → saved to `data/bookings.json` (view at `GET /api/book`)
-- Floating AI chat widget → `/api/chat` (Groq `llama-3.1-8b-instant` if `GROQ_API_KEY` is set, rule-based EN/AR fallback otherwise)
+- Floating AI chat widget → `/api/chat` (Groq `openai/gpt-oss-20b` if `GROQ_API_KEY` is set, rule-based EN/AR fallback otherwise)
 
 ## Run locally
 ```bash
